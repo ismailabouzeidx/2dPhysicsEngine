@@ -11,10 +11,14 @@ private:
 
 public:
     PhysicsWorld(const sf::Vector2f& gravity);
+    
     void addEntity(std::unique_ptr<PhysicsEntity> entity);
-    void update(float deltaTime);
+    void update(float deltaTime, sf::RenderWindow& window);
     void draw(sf::RenderWindow& window);
 
     void applyGravity();
+
+private:
+    void handleWindowCollisions(PhysicsEntity& entity, sf::RenderWindow& window);
 };
 

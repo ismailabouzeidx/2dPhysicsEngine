@@ -4,7 +4,7 @@
 #include "PhysicsWorld.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(1080, 1080), "2D Physics Engine");
+    sf::RenderWindow window(sf::VideoMode(800, 800), "2D Physics Engine");
 
     PhysicsWorld physicsWorld(sf::Vector2f(0, 9.8));  // Gravity in the positive Y direction
 
@@ -36,7 +36,7 @@ int main() {
         window.clear(sf::Color::White);
 
         // Update and render entities
-        physicsWorld.update(0.01f); // Adjust deltaTime as needed
+        physicsWorld.update(0.01f, window); // Adjust deltaTime as needed
         physicsWorld.draw(window);
 
         window.display();
