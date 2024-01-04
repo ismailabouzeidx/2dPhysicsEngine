@@ -14,6 +14,7 @@ public:
 
     virtual void update(float deltaTime);
     virtual void draw(sf::RenderWindow& window) = 0;
-
+    virtual void handleWindowCollisions(sf::RenderWindow& window) = 0;
     void applyForce(const sf::Vector2f& force);
+
 };

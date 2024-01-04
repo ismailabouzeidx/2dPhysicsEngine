@@ -12,8 +12,7 @@ void PhysicsWorld::update(float deltaTime, sf::RenderWindow& window) {
 
     for (auto& entity : entities) {
         entity->update(deltaTime);
-
-        handleWindowCollisions(*entity, window);
+        entity->handleWindowCollisions(window);
     }
 }
 
@@ -25,22 +24,7 @@ void PhysicsWorld::draw(sf::RenderWindow& window) {
 void PhysicsWorld::applyGravity() {
     // Apply gravity to all entities in the world
     for (auto& entity : entities) {
-        entity->applyForce(gravity);
+        entity->applyForce(gravity * entity->mass);
     }
 }
-void PhysicsWorld::handleWindowCollisions(PhysicsEntity& entity, sf::RenderWindow& window) {
-    sf::Vector2f entityPosition = entity.position;
-    float entityRadius = 20.0f;
-    float windowWidth = window.getSize().x;
-    float windowHeight = window.getSize().y;
 
-    if (entityPosition.x - entityRadius < 0 || entityPosition.x + entityRadius > windowWidth) {
-        std::cout << "Colliding with horizontal wall" << std::endl;
-        entity.velocity.x = -entity.velocity.x; // Reverse the horizontal velocity
-    }
-
-    if (entityPosition.y - entityRadius < 0 || entityPosition.y + entityRadius > windowHeight) {
-        std::cout << "Colliding with vertical wall" << std::endl;
-        entity.velocity.y = -entity.velocity.y; // Reverse the vertical velocity
-    }
-}

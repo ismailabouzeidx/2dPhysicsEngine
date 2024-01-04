@@ -10,5 +10,6 @@ public:
     Rectangle(float x, float y, float w, float h, float mass);
     virtual ~Rectangle() {}
 
+    void handleWindowCollisions(sf::RenderWindow& window) override;
     void draw(sf::RenderWindow& window) override;
 };

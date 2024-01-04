@@ -18,7 +18,5 @@ public:
 
     void applyGravity();
 
-private:
-    void handleWindowCollisions(PhysicsEntity& entity, sf::RenderWindow& window);
 };
 

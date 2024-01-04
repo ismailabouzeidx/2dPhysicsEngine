@@ -21,14 +21,14 @@ int main() {
                     sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
                     physicsWorld.addEntity(std::make_unique<Circle>(static_cast<float>(mousePosition.x),
                         static_cast<float>(mousePosition.y),
-                        20.0f, 1.0f));
+                        20.0f, 5.0f));
                 }
                 else if (event.mouseButton.button == sf::Mouse::Right) {
                     // Right mouse button pressed - spawn rectangle
                     sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
                     physicsWorld.addEntity(std::make_unique<Rectangle>(static_cast<float>(mousePosition.x),
                         static_cast<float>(mousePosition.y),
-                        50.0f, 30.0f, 1.0f));
+                        50.0f, 30.0f, 50.0f));
                 }
             }
         }
